@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 160 20% 97%;
+    --foreground: 200 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 10%;
+
+    --primary: 168 70% 34%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 30% 92%;
+    --secondary-foreground: 168 70% 24%;
+
+    --muted: 160 15% 93%;
+    --muted-foreground: 200 10% 45%;
+
+    --accent: 168 40% 88%;
+    --accent-foreground: 168 70% 20%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 168 15% 88%;
+    --input: 168 15% 88%;
+    --ring: 168 70% 34%;
+
+    --radius: 0.75rem;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --info: 210 80% 52%;
+    --info-foreground: 0 0% 100%;
+
+    --sidebar-background: 200 25% 10%;
+    --sidebar-foreground: 160 20% 90%;
+    --sidebar-primary: 168 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 20% 16%;
+    --sidebar-accent-foreground: 160 20% 90%;
+    --sidebar-border: 200 15% 18%;
+    --sidebar-ring: 168 70% 45%;
+    --sidebar-muted: 200 10% 40%;
+
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --gradient-primary: linear-gradient(135deg, hsl(168, 70%, 34%), hsl(180, 60%, 30%));
+    --gradient-hero: linear-gradient(135deg, hsl(200, 25%, 10%), hsl(168, 50%, 18%));
+    --gradient-card-green: linear-gradient(135deg, hsl(168, 70%, 34%), hsl(168, 60%, 42%));
+    --gradient-card-blue: linear-gradient(135deg, hsl(210, 80%, 52%), hsl(210, 70%, 60%));
+    --gradient-card-orange: linear-gradient(135deg, hsl(38, 92%, 50%), hsl(28, 85%, 55%));
+    --gradient-card-red: linear-gradient(135deg, hsl(0, 72%, 51%), hsl(0, 60%, 58%));
+
+    --shadow-card: 0 1px 3px hsl(168 20% 10% / 0.06), 0 4px 12px hsl(168 20% 10% / 0.04);
+    --shadow-card-hover: 0 4px 16px hsl(168 20% 10% / 0.1), 0 8px 24px hsl(168 20% 10% / 0.06);
+    --shadow-stat: 0 4px 20px hsl(168 70% 34% / 0.15);
+  }
+
+  .dark {
+    --background: 200 25% 8%;
+    --foreground: 160 20% 95%;
+
+    --card: 200 20% 12%;
+    --card-foreground: 160 20% 95%;
+
+    --popover: 200 20% 12%;
+    --popover-foreground: 160 20% 95%;
+
+    --primary: 168 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 20% 18%;
+    --secondary-foreground: 168 50% 70%;
+
+    --muted: 200 15% 16%;
+    --muted-foreground: 200 10% 55%;
+
+    --accent: 200 20% 18%;
+    --accent-foreground: 168 50% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 15% 20%;
+    --input: 200 15% 20%;
+    --ring: 168 70% 45%;
+
+    --sidebar-background: 200 25% 6%;
+    --sidebar-foreground: 160 20% 90%;
+    --sidebar-primary: 168 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 20% 12%;
+    --sidebar-accent-foreground: 160 20% 90%;
+    --sidebar-border: 200 15% 14%;
+    --sidebar-ring: 168 70% 45%;
+    --sidebar-muted: 200 10% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .stat-card {
+    @apply rounded-xl p-5 text-white shadow-lg;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+  .stat-card-green {
+    background: var(--gradient-card-green);
+  }
+  .stat-card-blue {
+    background: var(--gradient-card-blue);
+  }
+  .stat-card-orange {
+    background: var(--gradient-card-orange);
+  }
+  .stat-card-red {
+    background: var(--gradient-card-red);
+  }
+
+  .page-header {
+    font-family: var(--font-heading);
+    @apply text-2xl font-bold tracking-tight;
+    color: hsl(var(--foreground));
+  }
+
+  .glass-card {
+    @apply rounded-xl border bg-card p-6;
+    box-shadow: var(--shadow-card);
+  }
+  .glass-card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
