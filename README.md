@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Welcome to your Lovable project
+# Welcome to the management sysytem project
 
 ## Project info
 
